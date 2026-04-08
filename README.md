@@ -56,4 +56,5 @@ gcc nome_do_arquivo.c -o nome_do_programa
 
 ## Integrantes
 
-- (preencher com nome completo e usuario do Github de cada integrante)
+- Luis Boratto - [@Tox1469](https://github.com/Tox1469)
+- Igor Schiniegoski - [@igorschiniegoski](https://github.com/igorschiniegoski)
