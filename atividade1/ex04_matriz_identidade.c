@@ -1,8 +1,13 @@
 #include <stdio.h>
 
+// Exercicio 04 - Multiplicacao de matriz pela identidade
+// A matriz identidade tem 1 na diagonal principal e 0 no resto.
+// Propriedade: qualquer matriz multiplicada pela identidade da ela mesma (A * I = A).
+// Usei isso para comprovar a propriedade na pratica.
+
 int main() {
     int matriz[3][3], identidade[3][3], resultado[3][3];
-    int i, j, k;
+    int i, j, k; // k e usado no terceiro laco da multiplicacao
 
     printf("Digite os elementos da matriz 3x3:\n");
     for (i = 0; i < 3; i++) {
@@ -12,7 +17,7 @@ int main() {
         }
     }
 
-    // Monta a matriz identidade
+    // Monta a matriz identidade: 1 onde linha == coluna (diagonal), 0 no resto
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
             if (i == j)
@@ -38,10 +43,11 @@ int main() {
         printf("\n");
     }
 
-    // Multiplicacao: matriz * identidade = resultado
+    // Multiplicacao de matrizes: resultado[i][j] = soma dos produtos da linha i de A pela coluna j de B
+    // Preciso de tres lacos: i (linha do resultado), j (coluna do resultado), k (elemento acumulado)
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
-            resultado[i][j] = 0;
+            resultado[i][j] = 0; // inicio em 0 para acumular a soma
             for (k = 0; k < 3; k++) {
                 resultado[i][j] += matriz[i][k] * identidade[k][j];
             }
@@ -56,7 +62,8 @@ int main() {
         printf("\n");
     }
 
-    // Verifica se resultado == original
+    // Verifico se resultado e igual a matriz original elemento por elemento
+    // Uso uma flag (variavel booleana): começa como 1 (verdadeiro) e vira 0 se achar alguma diferenca
     int igual = 1;
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
